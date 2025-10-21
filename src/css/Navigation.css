@@ -1,7 +1,36 @@
-#main-nav ul{
-    padding-left:0;
+/* Navigation - gradient pill style */
+nav, #main-nav {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
 }
 
-#main-nav a{
-    text-decoration:none;
+nav ul, #main-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(90deg, #96A8C8, #d2d2d6, #96A8C8);
+    border-radius: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+nav li, #main-nav li {
+    margin: 0;
+}
+
+nav a, #main-nav a {
+    display: block;
+    padding: 1rem 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #2b3a35;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover, #main-nav a:hover {
+    background: rgba(255,255,255,0.25);
+    color: #1a1a1a;
 }

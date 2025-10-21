@@ -1,12 +1,19 @@
-import "./../css/Home.css";
+import Spotlight from "../components/Spotlight.jsx";
+import Grid from "../components/Grid.jsx";
+import Contact from "../components/Contact.jsx";
 
 const Home = () => {
     return (
-        <div id="home">
-            <h1>I'm Home</h1>
-            <h2>Home is for the heart</h2>
-        </div>
-    )
+        <>
+            <Spotlight />
+            <Grid />
+
+            <article className="project-card full-width" id="contact">
+                <h3>Contact Me</h3>
+                <Contact />
+            </article>
+        </>
+    );
 };
 
 export default Home;

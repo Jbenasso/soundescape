@@ -1,9 +1,8 @@
-import {Link} from 'react-router-dom'; 
 import "./../css/Spotlight.css";
 
 const Spotlight = () => {
     return (
-        <div class="flex-layout">
+        <div className="flex-layout">
 
             <section>
                 <article>

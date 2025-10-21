@@ -1,0 +1,19 @@
+[
+    {
+        "_id":1,
+        "name": "Soundscape",
+        "brand": "",
+        "price":"$0.00",
+        "material":"",
+        "description":"A music blog website that features reviews and recommendations for various music albums and artists.",
+        "rating":"4.5",
+        "reviews":
+        [
+            "perfect cd",
+            "I love this cd",
+            "best cd by best company", 
+            "was a dissapointment"
+        ],
+        "image":"1.jpg"
+    }
+]
