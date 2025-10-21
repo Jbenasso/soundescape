@@ -4,7 +4,8 @@ import "./../css/Header.css";
 const Header = () => {
     return (
         <div id="main-header">
-            <h1>Dogs</h1>
+            <h1>SoundScape</h1>
+            <p>Explore the World of Music</p>
         </div>
     )
 };

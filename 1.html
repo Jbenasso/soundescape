@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SoundScape Music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="content-box">
+
+    <!-- Header -->
+    <header>
+      <h1>SoundScape</h1>
+      <p>Explore the World of Music</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Staff</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Spotlight -->
+    <div class="flex-layout">
+
+      <section>
+        <article>
+          <h2>Genre Spotlight</h2>
+          <p>Each month, we shine a light on a genre that shaped the world of music...</p>
+        </article>
+        <article>
+          <h2>Featured Artist</h2>
+          <p>This week’s spotlight is on <strong>Herbie Hancock</strong>, a jazz innovator...</p>
+        </article>
+        <article>
+          <h2>Community Picks</h2>
+          <p>Our community playlist is packed with listener favorites...</p>
+        </article>
+      </section>
+    </div>
+
+    <!-- Grid -->
+    <div class="second-layout">
+      <aside class="links">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="#">Latest Playlists</a></li>
+          <li><a href="#">Music History</a></li>
+          <li><a href="#">Staff Favorites</a></li>
+          <li><a href="#">Upcoming Concerts</a></li>
+        </ul>
+      </aside>
+
+      <section class="content-grid">
+        <article>
+          <img src="../images/rock-classics.jpg" alt="Rock Classics">
+          <h3>Rock Classics</h3>
+          <p>From Led Zeppelin’s thunderous riffs to Queen’s stadium anthems...</p>
+        </article>
+
+        <article>
+          <img src="../images/jazz-legends.jpg" alt="Jazz Legends">
+          <h3>Jazz Legends</h3>
+          <p>Step into the world of Miles Davis, Ella Fitzgerald, and John Coltrane...</p>
+        </article>
+
+        <article>
+          <img src="../images/gallery1.jpg" alt="Gallery 1">
+          <h3>Gallery 1</h3>
+          <p>Snapshots from live shows...</p>
+        </article>
+
+        <article>
+          <img src="../images/gallery2.jpg" alt="Gallery 2">
+          <h3>Gallery 2</h3>
+          <p>A behind-the-scenes look at recording sessions...</p>
+        </article>
+
+        <article>
+          <img src="../images/gallery3.jpg" alt="Gallery 3">
+          <h3>Gallery 3</h3>
+          <p>Festival vibes — from colorful crowds to unforgettable performances...</p>
+        </article>
+
+        <article>
+          <img src="../images/hip-hop-vibes.jpg" alt="Hip Hop Vibes">
+          <h3>Hip-Hop Vibes</h3>
+          <p>Discover the beats and rhymes that tell stories of resilience...</p>
+        </article>
+
+        <article>
+          <img src="../images/edm-hits.jpg" alt="EDM Hits">
+          <h3>EDM Hits</h3>
+          <p>Feel the drop with today’s biggest EDM hits...</p>
+        </article>
+
+        <article>
+          <img src="../images/gallery4.jpg" alt="Gallery 4">
+          <h3>Gallery 4</h3>
+          <p>Iconic album covers that became works of art...</p>
+        </article>
+
+        <article>
+          <img src="../images/gallery5.jpg" alt="Gallery 5">
+          <h3>Gallery 5</h3>
+          <p>Fan-submitted artwork and photography celebrating music...</p>
+        </article>
+
+        <article>
+          <img src="../images/gallery6.jpg" alt="Gallery 6">
+          <h3>Gallery 6</h3>
+          <p>Fan-submitted artwork and photography celebrating music...</p>
+        </article>
+      </section>
+      <br>
+    </div>
+
+    <br>
+    <!-- Project Part 6: Contact form + IFrame -->
+        <article class="project-card full-width" id="contact">
+          <h3>Contact Me</h3>
+
+          <div class="project-row">
+
+            <!-- Contact Form -->
+            <div class="contact-form" aria-labelledby="contact">
+              <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+                <!-- Replace with your Access Key -->
+                <input type="hidden" name="access_key" value="5d06ecf7-d26a-4dce-a67e-b0fd07e60b49">
+
+                <div class="form-row">
+                  <label for="name">Name <span aria-hidden="true"></span></label>
+                  <input id="name" name="name" type="text" required maxlength="100" placeholder="Your name">
+                </div>
+
+                <div class="form-row">
+                  <label for="email">Email <span aria-hidden="true"></span></label>
+                  <input id="email" name="email" type="email" required placeholder="you@domain.com">
+                </div>
+
+                <div class="form-row">
+                  <label for="message">Message <span aria-hidden="true"></span></label>
+                  <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project or question..."></textarea>
+                </div>
+
+                <!-- Honeypot spam protection (hidden) -->
+                <input type="checkbox" name="botcheck" class="hidden-honeypot" aria-hidden="true" tabindex="-1" style="display:none">
+
+                <div class="form-actions">
+                  <button id="submit-btn" type="submit">Send Message</button>
+                  <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+                </div>
+              </form>
+              <p class="note">Send me a message :)</p>
+            </div>
+
+            <!-- IFrame (YouTube example) -->
+            <div class="iframe-wrapper" aria-hidden="false">
+              <div class="responsive-iframe">
+                <iframe
+                  src="https://www.youtube.com/embed/5qap5aO4i9A"
+                  title="Lofi Hip Hop Radio - Beats to Relax/Study to"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <p class="iframe-caption">Lofi Hip Hop Radio - Beats to Relax/Study to</p>
+            </div>
+
+          </div> <!-- /.project-row -->
+        </article>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 SoundScape. All rights reserved.</p>
+  </footer>
+</body>
+</html>
