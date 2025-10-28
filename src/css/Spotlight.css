@@ -72,17 +72,17 @@
   color: #33433f;
 }
 
-/* Background assignments */
+/* Background assignments using public folder */
 .flex-layout section article:nth-child(1) {
-  background-image: url("../images/1.jpg");
+  background-image: url("/1.jpg");
 }
 
 .flex-layout section article:nth-child(2) {
-  background-image: url("../images/2.jpg");
+  background-image: url("/2.jpg");
 }
 
 .flex-layout section article:nth-child(3) {
-  background-image: url("../images/3.jpg");
+  background-image: url("/3.jpg");
 }
 
 /* smooth reveal animation */

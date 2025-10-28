@@ -1,58 +1,61 @@
-import {Link} from 'react-router-dom'; 
-import "./../css/Contact.css";
+import { useState } from "react";
+import "../css/Contact.css";
 
-const Contact = () => {
-    return (
-        <div className="project-row">
+export default function ContactForm() {
+  const [status, setStatus] = useState("");
 
-            {/* Contact Form */}
-            <div className="contact-form" aria-labelledby="contact">
-              <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" noValidate>
-                {/* Replace with your Access Key */}
-                <input type="hidden" name="access_key" value="5d06ecf7-d26a-4dce-a67e-b0fd07e60b49" />
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending…");
+    const form = e.target;
+    const data = new FormData(form);
 
-                <div className="form-row">
-                  <label htmlFor="name">Name <span aria-hidden="true"></span></label>
-                  <input id="name" name="name" type="text" required maxLength="100" placeholder="Your name" />
-                </div>
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      const json = await res.json();
+      if (json.success) {
+        setStatus("Message sent!");
+        form.reset();
+      } else {
+        setStatus("Error – please try again.");
+      }
+    } catch {
+      setStatus("Network error.");
+    }
+  };
 
-                <div className="form-row">
-                  <label htmlFor="email">Email <span aria-hidden="true"></span></label>
-                  <input id="email" name="email" type="email" required placeholder="you@domain.com" />
-                </div>
-
-                <div className="form-row">
-                  <label htmlFor="message">Message <span aria-hidden="true"></span></label>
-                  <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project or question..."></textarea>
-                </div>
-
-                {/* Honeypot spam protection (hidden) */}
-                <input type="checkbox" name="botcheck" className="hidden-honeypot" aria-hidden="true" tabIndex="-1" style={{display: 'none'}} />
-
-                <div className="form-actions">
-                  <button id="submit-btn" type="submit">Send Message</button>
-                  <div id="form-status" className="form-status" role="status" aria-live="polite"></div>
-                </div>
-              </form>
-              <p className="note">Send me a message :)</p>
-            </div>
-
-            {/* IFrame (YouTube example) */}
-            <div className="iframe-wrapper" aria-hidden="false">
-              <div className="responsive-iframe">
-                <iframe
-                  src="https://www.youtube.com/embed/5qap5aO4i9A"
-                  title="Lofi Hip Hop Radio - Beats to Relax/Study to"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen>
-                </iframe>
-              </div>
-              <p className="iframe-caption">Lofi Hip Hop Radio - Beats to Relax/Study to</p>
-            </div>
-
+  return (
+    <div className="contact-form" aria-labelledby="contact">
+      <form id="contact-form" onSubmit={handleSubmit} noValidate>
+        <input type="hidden" name="access_key" value="5d06ecf7-d26a-4dce-a67e-b0fd07e60b49" />
+        <div className="form-row">
+          <label htmlFor="name">Name</label>
+          <input id="name" name="name" type="text" required maxLength={100} placeholder="Your name" />
         </div>
-    )
-};
 
-export default Contact;
+        <div className="form-row">
+          <label htmlFor="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@domain.com" />
+        </div>
+
+        <div className="form-row">
+          <label htmlFor="message">Message</label>
+          <textarea id="message" name="message" rows={6} required placeholder="Tell me about your project or question..."></textarea>
+        </div>
+
+        <input type="checkbox" name="botcheck" className="hidden-honeypot" aria-hidden="true" tabIndex={-1} style={{ display: "none" }} />
+
+        <div className="form-actions">
+          <button id="submit-btn" type="submit">Send Message</button>
+          <div id="form-status" className={`form-status ${status.includes("sent") ? "status-success" : status ? "status-error" : ""}`} role="status" aria-live="polite">
+            {status}
+          </div>
+        </div>
+      </form>
+      <p className="note">Send me a message :)</p>
+    </div>
+  );
+}

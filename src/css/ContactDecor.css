@@ -1,0 +1,71 @@
+/* =====  slim studio contact  ===== */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap');
+
+.contact-decor{
+  max-width:1000px;margin:2rem auto 3rem;padding:0 1rem;
+  font-family:'JetBrains Mono',monospace;
+  color:#111;
+}
+
+/* ---- skinny title bar ---- */
+.contact-decor .hero{
+  text-align:left;padding:1rem 0 .5rem;background:none;
+  border-bottom:1px solid #e0e0e0;margin-bottom:2rem;
+}
+.contact-decor .hero h1{
+  margin:0;font-family:'Space Grotesk',sans-serif;
+  font-size:1.6rem;letter-spacing:.5px;
+}
+.contact-decor .hero p{margin:.25rem 0 0;font-size:.9rem;opacity:.75;}
+
+/* ---- console (form + iframe) ---- */
+.glass-card{
+  display:flex;gap:2rem;align-items:start;
+  background:#0a0a0a;border-radius:12px;
+  padding:2rem;box-shadow:0 8px 30px rgba(0,0,0,.45);
+}
+.glass-card > *{flex:1 1 0;}
+@media (max-width:900px){.glass-card{flex-direction:column;}}
+
+/* ---- form skin ---- */
+form{background:transparent;}
+form h3{margin:0 0 1rem;font-family:'Space Grotesk',sans-serif;font-size:1.2rem;color:#96a8c8;}
+form label{margin-bottom:.25rem;display:block;font-size:.75rem;color:#aaa;}
+form input, form textarea{
+  width:100%;padding:.6rem .8rem;margin-bottom:.9rem;
+  background:#161616;border:1px solid #2a2a2a;border-radius:6px;
+  color:#e0e0e0;font-family:inherit;font-size:.85rem;
+  transition:border-color .2s,box-shadow .2s;
+}
+form input:focus, form textarea:focus{
+  outline:none;border-color:#96a8c8;box-shadow:0 0 0 3px rgba(150,168,200,.25);
+}
+form textarea{resize:vertical;min-height:100px;}
+
+.form-actions{display:flex;align-items:center;gap:1rem;}
+#submit-btn{
+  padding:.55rem 1.2rem;border:none;border-radius:6px;
+  background:#96a8c8;color:#0a0a0a;font-weight:600;cursor:pointer;
+  transition:.25s;
+}
+#submit-btn:hover{background:#7aa3d0;transform:translateY(-2px);}
+#form-status{font-size:.75rem;color:#aaa;}
+#form-status.status-success{color:#4ade80;}
+
+/* ---- iframe monitor ---- */
+.responsive-iframe{
+  background:#000;border-radius:10px;overflow:hidden;
+  box-shadow:inset 0 0 8px rgba(0,0,0,.6);
+}
+.responsive-iframe iframe{width:100%;aspect-ratio:16/9;display:block;}
+
+/* ---- social strip ---- */
+.social-strip{
+  display:flex;justify-content:center;gap:1.5rem;margin-top:2rem;
+  font-size:.8rem;
+}
+.social-strip a{
+  color:#555;text-decoration:none;padding:.20rem .20rem;border-radius:20px;
+  background:#f0f0f0;transition:.25s;
+}
+.social-strip a:hover{background:#96a8c8;color:#fff;}

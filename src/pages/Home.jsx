@@ -1,19 +1,24 @@
 import Spotlight from "../components/Spotlight.jsx";
-import Grid from "../components/Grid.jsx";
-import Contact from "../components/Contact.jsx";
+import ContentGrid from "../components/Grid.jsx";
 
-const Home = () => {
-    return (
-        <>
-            <Spotlight />
-            <Grid />
+export default function Home() {
+  return (
+    <div className="home-wrap">
+      <Spotlight />
 
-            <article className="project-card full-width" id="contact">
-                <h3>Contact Me</h3>
-                <Contact />
-            </article>
-        </>
-    );
-};
+      <div className="second-layout">
+        <aside className="links glass">
+          <h3>Links</h3>
+          <ul>
+            <li><a href="#">Latest Playlists</a></li>
+            <li><a href="#">Music History</a></li>
+            <li><a href="#">Staff Favorites</a></li>
+            <li><a href="#">Upcoming Concerts</a></li>
+          </ul>
+        </aside>
 
-export default Home;
+        <ContentGrid />
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,27 @@
+/* ======  SoundScape design tokens  ====== */
+:root{
+  --cream: #fffdf9;
+  --slate: #2c3c37;
+  --mist: #96a8c8;
+  --mist-light: #d2d2d6;
+  --accent: #6f95c2;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0,0,0,.08);
+  --font-serif: 'Cormorant Garamond',serif;
+  --font-sans: 'Inter',sans-serif;
+}
+
+/* ======  utilities  ====== */
+.btn{
+  display:inline-block;padding:.65rem 1.4rem;border-radius:var(--radius);
+  font-family:var(--font-serif);font-weight:600;text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),#98b6ce);
+  color:#0f1a17;box-shadow:0 6px 14px rgba(49,75,97,.08);
+  transition:.25s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(49,75,97,.15);}
+.glass{
+  background:rgba(255,255,255,.55);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:var(--radius);
+}
