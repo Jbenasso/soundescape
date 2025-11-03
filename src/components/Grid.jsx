@@ -10,68 +10,90 @@ import gallery4 from '../images/gallery4.jpg';
 import gallery5 from '../images/gallery5.jpg';
 import gallery6 from '../images/gallery6.jpg';
 
+// Array of gallery items for proper component mapping
+const galleryItems = [
+  {
+    id: 1,
+    image: rockClassics,
+    alt: 'Rock Classics',
+    title: 'Rock Classics',
+    description: "From Led Zeppelin's thunderous riffs to Queen's stadium anthems..."
+  },
+  {
+    id: 2,
+    image: jazzLegends,
+    alt: 'Jazz Legends',
+    title: 'Jazz Legends',
+    description: 'Step into the world of Miles Davis, Ella Fitzgerald, and John Coltrane...'
+  },
+  {
+    id: 3,
+    image: gallery1,
+    alt: 'Gallery 1',
+    title: 'Gallery 1',
+    description: 'Snapshots from live shows...'
+  },
+  {
+    id: 4,
+    image: gallery2,
+    alt: 'Gallery 2',
+    title: 'Gallery 2',
+    description: 'A behind-the-scenes look at recording sessions...'
+  },
+  {
+    id: 5,
+    image: gallery3,
+    alt: 'Gallery 3',
+    title: 'Gallery 3',
+    description: 'Festival vibes  from colorful crowds to unforgettable performances...'
+  },
+  {
+    id: 6,
+    image: hipHopVibes,
+    alt: 'Hip Hop Vibes',
+    title: 'Hip-Hop Vibes',
+    description: 'Discover the beats and rhymes that tell stories of resilience...'
+  },
+  {
+    id: 7,
+    image: edmHits,
+    alt: 'EDM Hits',
+    title: 'EDM Hits',
+    description: "Feel the drop with today's biggest EDM hits..."
+  },
+  {
+    id: 8,
+    image: gallery4,
+    alt: 'Gallery 4',
+    title: 'Gallery 4',
+    description: 'Iconic album covers that became works of art...'
+  },
+  {
+    id: 9,
+    image: gallery5,
+    alt: 'Gallery 5',
+    title: 'Gallery 5',
+    description: 'Fan-submitted artwork and photography celebrating music...'
+  },
+  {
+    id: 10,
+    image: gallery6,
+    alt: 'Gallery 6',
+    title: 'Gallery 6',
+    description: 'Fan-submitted artwork and photography celebrating music...'
+  }
+];
+
 const Grid = () => {
   return (
     <section className='content-grid'>
-      <article>
-        <img src={rockClassics} alt='Rock Classics' />
-        <h3>Rock Classics</h3>
-        <p>From Led Zeppelin's thunderous riffs to Queen's stadium anthems...</p>
-      </article>
-
-      <article>
-        <img src={jazzLegends} alt='Jazz Legends' />
-        <h3>Jazz Legends</h3>
-        <p>Step into the world of Miles Davis, Ella Fitzgerald, and John Coltrane...</p>
-      </article>
-
-      <article>
-        <img src={gallery1} alt='Gallery 1' />
-        <h3>Gallery 1</h3>
-        <p>Snapshots from live shows...</p>
-      </article>
-
-      <article>
-        <img src={gallery2} alt='Gallery 2' />
-        <h3>Gallery 2</h3>
-        <p>A behind-the-scenes look at recording sessions...</p>
-      </article>
-
-      <article>
-        <img src={gallery3} alt='Gallery 3' />
-        <h3>Gallery 3</h3>
-        <p>Festival vibes  from colorful crowds to unforgettable performances...</p>
-      </article>
-
-      <article>
-        <img src={hipHopVibes} alt='Hip Hop Vibes' />
-        <h3>Hip-Hop Vibes</h3>
-        <p>Discover the beats and rhymes that tell stories of resilience...</p>
-      </article>
-
-      <article>
-        <img src={edmHits} alt='EDM Hits' />
-        <h3>EDM Hits</h3>
-        <p>Feel the drop with today's biggest EDM hits...</p>
-      </article>
-
-      <article>
-        <img src={gallery4} alt='Gallery 4' />
-        <h3>Gallery 4</h3>
-        <p>Iconic album covers that became works of art...</p>
-      </article>
-
-      <article>
-        <img src={gallery5} alt='Gallery 5' />
-        <h3>Gallery 5</h3>
-        <p>Fan-submitted artwork and photography celebrating music...</p>
-      </article>
-
-      <article>
-        <img src={gallery6} alt='Gallery 6' />
-        <h3>Gallery 6</h3>
-        <p>Fan-submitted artwork and photography celebrating music...</p>
-      </article>
+      {galleryItems.map((item) => (
+        <article key={item.id}>
+          <img src={item.image} alt={item.alt} />
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
     </section>
   );
 };
