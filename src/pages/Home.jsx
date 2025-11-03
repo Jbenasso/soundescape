@@ -21,7 +21,7 @@ export default function Home() {
             📦 View Code
           </a>
           <a 
-            href="YOUR_RENDER_URL_HERE" 
+            href="https://soundescape.onrender.com/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn-live"
