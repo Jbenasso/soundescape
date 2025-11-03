@@ -1,5 +1,5 @@
 import ContactForm from "../components/Contact.jsx";
-import IframeLofi from "../components/IframeLofi.jsx";
+import IFrameLofi from "../components/IFrameLofi.jsx";
 import "../css/ContactDecor.css";
 
 export default function Contact() {
@@ -12,7 +12,7 @@ export default function Contact() {
       <div className="console">
         <ContactForm />
         <div className="monitor">
-          <IframeLofi />
+          <IFrameLofi />
         </div>
       </div>
 
