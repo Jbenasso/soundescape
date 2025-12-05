@@ -7,6 +7,7 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Vault from "./pages/Vault.jsx";
 import Contact from "./pages/Contact.jsx";
+import Albums from "./pages/Albums.jsx";
 
 import "./css/index.css";
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "vault", element: <Vault /> },
       { path: "contact", element: <Contact /> },
+      { path: "albums", element: <Albums /> },
     ],
   },
 ]);

@@ -28,6 +28,7 @@ export default function Navigation() {
 
       <ul className={isMenuOpen ? "show" : ""}>
         <li><NavLink to="/" onClick={closeMenu}>Home</NavLink></li>
+        <li><NavLink to="/albums" onClick={closeMenu}>Albums</NavLink></li>
         <li><NavLink to="/about" onClick={closeMenu}>About</NavLink></li>
         <li><NavLink to="/vault" onClick={closeMenu}>Vault</NavLink></li>
         <li><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>

@@ -1,0 +1,279 @@
+/* Album Modal Styles */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.modal-image {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.modal-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.modal-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.modal-details h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: #2b3a35;
+    margin: 0;
+}
+
+.modal-artist {
+    font-size: 1.3rem;
+    color: #666;
+    font-weight: 500;
+    margin: 0;
+}
+
+.modal-rating {
+    color: #ffd700;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+}
+
+.modal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    color: #2b3a35;
+    font-weight: 600;
+}
+
+.modal-description {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #96A8C8;
+}
+
+.modal-description h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: #2b3a35;
+    margin-bottom: 0.8rem;
+}
+
+.modal-description p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn-secondary,
+.btn-edit,
+.btn-delete {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-edit {
+    background: #96A8C8;
+    color: white;
+}
+
+.btn-edit:hover {
+    background: #7b93b8;
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background: #f44336;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        max-height: 95vh;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .modal-details h2 {
+        font-size: 2rem;
+    }
+
+    .modal-artist {
+        font-size: 1.1rem;
+    }
+
+    .modal-info-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .modal-description {
+        padding: 1rem;
+    }
+
+    .modal-close {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 0.5rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-details h2 {
+        font-size: 1.7rem;
+    }
+
+    .modal-description h3 {
+        font-size: 1.2rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .btn-secondary {
+        width: 100%;
+    }
+}
