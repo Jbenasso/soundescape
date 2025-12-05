@@ -1,5 +1,5 @@
-const FALLBACK_RENDER = 'https://soundescape-server.onrender.com/api/albums';
-const FALLBACK_LOCAL = 'http://localhost:3000/api/albums';
+const RENDER_API = 'https://soundescape-server.onrender.com/api/albums';
+const LOCAL_API = 'http://localhost:3000/api/albums';
 
 export const getApiUrl = () => {
   const envUrl = import.meta.env.VITE_API_URL;
@@ -10,13 +10,8 @@ export const getApiUrl = () => {
   if (typeof window !== 'undefined') {
     const host = window.location.hostname;
     const isLocal = host === 'localhost' || host === '127.0.0.1';
-    // In production, prefer the hosted API on Render
-    if (!isLocal) {
-      return FALLBACK_RENDER;
-    }
-    // In local dev, prefer local API
-    return FALLBACK_LOCAL;
+    return isLocal ? LOCAL_API : RENDER_API;
   }
 
-  return FALLBACK_LOCAL;
+  return RENDER_API;
 };
