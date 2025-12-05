@@ -15,3 +15,5 @@ export const getApiUrl = () => {
 
   return RENDER_API;
 };
+
+export const API_URL = getApiUrl();

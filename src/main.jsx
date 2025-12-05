@@ -23,7 +23,9 @@ const router = createBrowserRouter([
       { path: "albums", element: <Albums /> },
     ],
   },
-]);
+], {
+  basename: import.meta.env.BASE_URL
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

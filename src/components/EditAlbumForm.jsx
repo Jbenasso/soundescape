@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../css/AddAlbumForm.css';
-import { getApiUrl } from '../utils/api.js';
-
-const API_URL = getApiUrl();
+import { API_URL } from '../utils/api.js';
 
 export default function EditAlbumForm({ album, onAlbumUpdated, onCancel }) {
   const [formData, setFormData] = useState({

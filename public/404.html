@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0;url=/soundescape/" />
+  <title>Redirecting…</title>
+  <script>
+    // SPA fallback for GitHub Pages
+    const redirect = () => {
+      const path = window.location.pathname.replace(/^\/soundescape/, '');
+      const query = window.location.search || '';
+      const hash = window.location.hash || '';
+      window.location.replace(`/soundescape/${path}${query}${hash}`);
+    };
+    redirect();
+  </script>
+</head>
+<body>
+  Redirecting…
+</body>
+</html>

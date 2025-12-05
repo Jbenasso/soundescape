@@ -3,9 +3,7 @@ import '../css/Albums.css';
 import AlbumModal from '../components/AlbumModal.jsx';
 import AddAlbumForm from '../components/AddAlbumForm.jsx';
 import EditAlbumForm from '../components/EditAlbumForm.jsx';
-import { getApiUrl } from '../utils/api.js';
-
-const API_URL = getApiUrl();
+import { API_URL } from '../utils/api.js';
 const FALLBACK_IMAGE = 'https://via.placeholder.com/600?text=Album+Cover';
 
 export default function Albums() {
@@ -25,15 +23,26 @@ export default function Albums() {
       setLoading(true);
       const response = await fetch(API_URL);
       if (!response.ok) {
-        throw new Error('Failed to fetch albums');
+        const message = await safeReadError(response);
+        throw new Error(message || 'Failed to fetch albums');
       }
       const data = await response.json();
       setAlbums(data);
       setError(null);
     } catch (err) {
+      console.error('Album fetch failed', { api: API_URL, error: err });
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const safeReadError = async (response) => {
+    try {
+      const data = await response.json();
+      return data?.error || response.statusText;
+    } catch (e) {
+      return response.statusText;
     }
   };
 
