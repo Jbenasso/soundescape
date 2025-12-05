@@ -43,8 +43,8 @@ export default function AddAlbumForm({ onAlbumAdded, onCancel }) {
       newErrors.year = `Year must be between 1900 and ${currentYear}`;
     }
 
-    if (!data.image || !urlPattern.test(data.image)) {
-      newErrors.image = 'Please enter a valid URL starting with http:// or https://';
+    if (!data.image || data.image.length < 10) {
+      newErrors.image = 'Please enter a valid image URL (minimum 10 characters)';
     }
 
     if (!data.description || data.description.length < 10 || data.description.length > 500) {
@@ -103,8 +103,8 @@ export default function AddAlbumForm({ onAlbumAdded, onCancel }) {
         break;
       case 'image':
         const urlPattern = /^https?:\/\/.+/;
-        if (!value || !urlPattern.test(value)) {
-          newErrors.image = 'Please enter a valid URL starting with http:// or https://';
+        if (!value || value.length < 10) {
+          newErrors.image = 'Please enter a valid image URL (minimum 10 characters)';
         } else {
           delete newErrors.image;
         }
