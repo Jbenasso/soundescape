@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import '../css/AlbumModal.css';
 
+const FALLBACK_IMAGE = 'https://via.placeholder.com/600?text=Album+Cover';
+
 export default function AlbumModal({ album, onClose, onEdit, onDelete }) {
   // Close modal on ESC key
   useEffect(() => {
@@ -28,7 +30,11 @@ export default function AlbumModal({ album, onClose, onEdit, onDelete }) {
 
         <div className="modal-body">
           <div className="modal-image">
-            <img src={album.image} alt={album.title} />
+            <img 
+              src={album.image} 
+              alt={album.title} 
+              onError={(e) => { e.currentTarget.src = FALLBACK_IMAGE; }}
+            />
           </div>
 
           <div className="modal-details">

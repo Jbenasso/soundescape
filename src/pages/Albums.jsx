@@ -3,9 +3,10 @@ import '../css/Albums.css';
 import AlbumModal from '../components/AlbumModal.jsx';
 import AddAlbumForm from '../components/AddAlbumForm.jsx';
 import EditAlbumForm from '../components/EditAlbumForm.jsx';
+import { getApiUrl } from '../utils/api.js';
 
-// API URL - update this when server is deployed to Render
-const API_URL = 'http://localhost:3000/api/albums';
+const API_URL = getApiUrl();
+const FALLBACK_IMAGE = 'https://via.placeholder.com/600?text=Album+Cover';
 
 export default function Albums() {
   const [albums, setAlbums] = useState([]);
@@ -139,7 +140,11 @@ export default function Albums() {
               className="album-image-wrapper"
               onClick={() => handleAlbumClick(album)}
             >
-              <img src={album.image} alt={album.title} />
+              <img 
+                src={album.image} 
+                alt={album.title} 
+                onError={(e) => { e.currentTarget.src = FALLBACK_IMAGE; }}
+              />
               <div className="album-overlay">
                 <span className="view-details">View Details →</span>
               </div>

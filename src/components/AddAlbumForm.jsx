@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import '../css/AddAlbumForm.css';
+import { getApiUrl } from '../utils/api.js';
 
-// API URL - update this when server is deployed to Render
-const API_URL = 'http://localhost:3000/api/albums';
+const API_URL = getApiUrl();
 
 export default function AddAlbumForm({ onAlbumAdded, onCancel }) {
   const [formData, setFormData] = useState({
@@ -20,6 +20,55 @@ export default function AddAlbumForm({ onAlbumAdded, onCancel }) {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+  const validateAll = (data) => {
+    const newErrors = {};
+
+    const urlPattern = /^https?:\/\/.+/;
+    const durationPattern = /^\d{1,3}:\d{2}$/;
+    const currentYear = new Date().getFullYear();
+
+    if (!data.title || data.title.length < 1 || data.title.length > 100) {
+      newErrors.title = 'Title must be between 1 and 100 characters';
+    }
+
+    if (!data.artist || data.artist.length < 1 || data.artist.length > 100) {
+      newErrors.artist = 'Artist name must be between 1 and 100 characters';
+    }
+
+    if (!data.genre || data.genre.length < 1 || data.genre.length > 50) {
+      newErrors.genre = 'Genre must be between 1 and 50 characters';
+    }
+
+    const yearNum = parseInt(data.year);
+    if (isNaN(yearNum) || yearNum < 1900 || yearNum > currentYear) {
+      newErrors.year = `Year must be between 1900 and ${currentYear}`;
+    }
+
+    if (!data.image || !urlPattern.test(data.image)) {
+      newErrors.image = 'Please enter a valid URL starting with http:// or https://';
+    }
+
+    if (!data.description || data.description.length < 10 || data.description.length > 500) {
+      newErrors.description = 'Description must be between 10 and 500 characters';
+    }
+
+    const ratingNum = parseInt(data.rating);
+    if (isNaN(ratingNum) || ratingNum < 1 || ratingNum > 5) {
+      newErrors.rating = 'Rating must be between 1 and 5';
+    }
+
+    const tracksNum = parseInt(data.tracks);
+    if (isNaN(tracksNum) || tracksNum < 1) {
+      newErrors.tracks = 'Number of tracks must be at least 1';
+    }
+
+    if (!data.duration || !durationPattern.test(data.duration)) {
+      newErrors.duration = 'Duration must be in format MM:SS or MMM:SS (e.g., 42:30)';
+    }
+
+    return newErrors;
+  };
 
   const validateField = (name, value) => {
     const newErrors = { ...errors };
@@ -108,14 +157,9 @@ export default function AddAlbumForm({ onAlbumAdded, onCancel }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate all fields
-    Object.keys(formData).forEach(key => {
-      validateField(key, formData[key]);
-    });
-
-    // Check if there are any errors
-    if (Object.keys(errors).length > 0) {
+    const newErrors = validateAll(formData);
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) {
       setSubmitStatus({ type: 'error', message: 'Please fix all errors before submitting' });
       return;
     }
