@@ -10,24 +10,50 @@ export default function Home() {
 
       {/* GitHub Project Links */}
       <section className="github-links">
-        <h3>React Project</h3>
-        <div className="link-buttons">
-          <a 
-            href="https://github.com/Jbenasso/soundescape" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn-code"
-          >
-            📦 View Code
-          </a>
-          <a 
-            href="https://soundescape.onrender.com/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn-live"
-          >
-            🚀 Live Site
-          </a>
+        <h3>SoundScape Project - Full Stack</h3>
+        
+        <div style={{ marginBottom: '2rem' }}>
+          <h4 style={{ marginTop: 0, marginBottom: '1rem' }}>Frontend (React + Vite)</h4>
+          <div className="link-buttons">
+            <a 
+              href="https://github.com/Jbenasso/soundescape" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-code"
+            >
+              💻 Frontend Repo
+            </a>
+            <a 
+              href="https://soundescape.onrender.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-live"
+            >
+              🚀 Live Site
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 style={{ marginTop: 0, marginBottom: '1rem' }}>Backend (Express + MongoDB)</h4>
+          <div className="link-buttons">
+            <a 
+              href="https://github.com/Jbenasso/soundescape-server" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-code"
+            >
+              🔧 Backend Repo
+            </a>
+            <a 
+              href="https://soundescape-server.onrender.com/api/albums" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-live"
+            >
+              ⚡ API Endpoint
+            </a>
+          </div>
         </div>
       </section>
 
