@@ -1,28 +1,70 @@
-/* Global */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: url("/background.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #2c2c2c;
-  line-height: 1.7;
+/* Design tokens */
+:root{
+  --cream:#fffdf9;
+  --slate:#2c3c37;
+  --mist:#96a8c8;
+  --mist-light:#d2d2d6;
+  --accent:#6f95c2;
+  --radius:12px;
+  --shadow:0 4px 20px rgba(0,0,0,.08);
+  --font-serif:'Cormorant Garamond',serif;
+  --font-sans:'Inter',sans-serif;
 }
 
-/* Container */
-.content-box {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fffdf9;
-  border-radius: 18px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+/* Base layout */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  line-height:1.6;
+  background:linear-gradient(180deg,#f5f7fb 0%,#fffdf9 35%,#eef1f7 100%);
+  color:var(--slate);
+  min-height:100vh;
 }
 
-/* Footer */
-footer {
-  margin-top: 3rem;
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.95rem;
-  color: #5f6d64;
+#root{display:flex;justify-content:center;}
+
+.content-box{
+  width:100%;
+  max-width:1200px;
+  margin:2rem auto;
+  padding:2.5rem 2rem 3rem;
+  background:var(--cream);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+footer{
+  margin-top:3rem;
+  text-align:center;
+  padding:2rem 1rem 3rem;
+  font-size:0.95rem;
+  color:#5f6d64;
+}
+
+a{color:inherit;}
+
+/* Buttons */
+.btn{
+  display:inline-block;padding:.65rem 1.4rem;border-radius:var(--radius);
+  font-family:var(--font-serif);font-weight:600;text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),#98b6ce);
+  color:#0f1a17;box-shadow:0 6px 14px rgba(49,75,97,.08);
+  transition:.25s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(49,75,97,.15);}
+.glass{
+  background:rgba(255,255,255,.55);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:var(--radius);
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px){
+  .content-box{padding:2rem 1.25rem 2.5rem;}
+}
+
+@media (max-width: 640px){
+  .content-box{padding:1.5rem 1rem 2rem;}
+  footer{padding:1.5rem 0 2rem;font-size:0.9rem;}
 }

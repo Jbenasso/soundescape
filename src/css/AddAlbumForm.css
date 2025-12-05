@@ -197,3 +197,24 @@
         width: 100%;
     }
 }
+
+@media (max-width: 480px) {
+    .add-album-form-container {
+        padding: 1.25rem;
+        margin: 0.75rem;
+    }
+
+    .form-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.95rem;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        padding: 0.85rem 1rem;
+    }
+}

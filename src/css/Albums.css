@@ -283,6 +283,7 @@
     .albums-header {
         margin-bottom: 2rem;
         padding: 1.5rem;
+        text-align: left;
     }
 
     .albums-header h1 {
@@ -297,10 +298,31 @@
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1.5rem;
     }
+
+    .add-album-btn {
+        width: 100%;
+    }
+
+    .album-actions {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 480px) {
     .albums-grid {
         grid-template-columns: 1fr;
+    }
+
+    .albums-header {
+        padding: 1.25rem;
+    }
+
+    .album-info {
+        padding: 1.25rem;
+    }
+
+    .album-meta {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
