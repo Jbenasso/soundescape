@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Default base for GitHub Pages (/soundescape/), override to "/" on Render via BASE_PATH or RENDER env
-const base = process.env.BASE_PATH || (process.env.RENDER ? '/' : '/soundescape/');
+// Base path: default "/"; set BASE_PATH=/soundescape/ when building for GitHub Pages
+const base = process.env.BASE_PATH || '/';
 
 // https://vite.dev/config/
 export default defineConfig({

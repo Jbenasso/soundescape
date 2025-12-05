@@ -24,7 +24,7 @@ export default function Albums() {
       const response = await fetch(API_URL);
       if (!response.ok) {
         const message = await safeReadError(response);
-        throw new Error(message || 'Failed to fetch albums');
+        throw new Error(`${response.status} ${response.statusText} – ${message || 'Failed to fetch albums'}`);
       }
       const data = await response.json();
       setAlbums(data);
@@ -105,6 +105,7 @@ export default function Albums() {
         <div className="error-message">
           <h2>⚠️ Error Loading Albums</h2>
           <p>{error}</p>
+          <p className="error-hint">API: {API_URL}</p>
           <button onClick={fetchAlbums} className="retry-btn">Try Again</button>
         </div>
       </div>
